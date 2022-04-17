@@ -1,0 +1,28 @@
+{% extends 'partials/base.html' %}
+{% block title %}Mascotas{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row mt-">
+        <div class="col-md-6 offset_md-3">
+            <div class="border bg-white p-3">
+                <h3>Eliminar Mascota</h3>
+                <hr>    
+                <div class=" alert alert-danger">
+                    <h4>¿Esta seguro que desea Eliminar?</h4>
+
+                </div>
+                <form method="POST">
+                    {% csrf_token %}
+                    {{form}}
+                    <a class = "btn btn-secondary" href="{% url 'dashboard-agregar_mascotas' %}">Cancelar</a>
+                    <input class="btn btn-danger" type="submit" value= "Confirmo">
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'partials/base.html' %}
+{% block title %}Mascotas{% endblock %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container">
+    <div class="row mt-">
+        <div class="col-md-6 offset_md-3">
+            <div class="border bg-white p-3">
+                <h3>Editar Mascota</h3>
+                <hr>    
+               
+                <form method="POST">
+                    {% csrf_token %}
+                    {{form|crispy}}
+                    <a class = "btn btn-secondary" href="{% url 'dashboard-agregar_mascotas' %}">Cancelar</a>
+                    <input class="btn btn-danger" type="submit" value= "ACTUALIZAR">
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}

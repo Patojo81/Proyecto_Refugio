@@ -1,0 +1,31 @@
+{% extends 'partials/base.html' %}
+{% block title %} Logout {% endblock %}
+
+
+{% block content %}
+<hr>
+<hr>
+<hr>
+<hr>
+
+
+<div class="container"> 
+    
+    <div class="row mt-5">
+        <div class="col-md-6 offset-md-3">
+            <div class="border bg-white p-3">
+                <h3>Logout Page</h3>
+                <hr>
+                <div class="alert alert-danger">
+                    <h4> Ud ha cerrado Sesion</h4>
+                </div>
+                <a href="{% url 'user-login' %}">Iniciar Sesion</a>
+            </div>
+
+           
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

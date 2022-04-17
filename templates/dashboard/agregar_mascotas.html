@@ -1,0 +1,83 @@
+{% extends 'partials/base.html' %}
+{% block title %}Agregar Mascotas{% endblock %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+   <!--Table-->
+<hr>
+<hr>
+<hr>
+<hr>
+<!--Table-->
+
+<div class="container">
+    <div class="row my-4">
+        {% if user.is_authenticated and user.is_staff %}
+        <div class="col-md-4">
+            <div class="border bg-white p-3">
+                <h4>Agregar Mascota</h4>
+                <hr>
+                <form method= "POST">
+                  {% csrf_token %}
+                  {{ form|crispy }}
+                    <input class="btn btn-success btn-block" type="submit" value="Agregar Mascota">
+
+                </form>
+            </div>
+        </div>
+        {% endif %}
+        <div class="col-md-8">
+            <table class="table bg-white">
+                <thead class="bg-info">
+                    <tr class="text-white">
+                        <th scope="col">#</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Alimentacion</th>
+                        <th scope="col">Edad</th>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Sexo</th>
+                        <th scope="col">Enfermedad</th>
+                        <th scope="col">Especie</th>
+                        <th scope="col">Raza</th>
+                        {% if user.is_authenticated and user.is_staff %}
+                        <th scope="col">Administrar</th>
+                        {% endif %}
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in items %}
+                    <tr>
+                        <td>{{ item.id }}</td>
+                        <td>{{ item.Nombre }}</td>
+                        <td>{{ item.Alimentacion }}</td>
+                        <td>{{ item.Edad }}</td>
+                        <td>{{ item.Fecha }}</td>
+                        <td>{{ item.Sexo }}</td>
+                        <td>{{ item.Enfermedad }}</td>
+                        <td>{{ item.Especie }}</td>
+                        <td>{{ item.Raza}}</td>
+                        
+                        {% if user.is_authenticated and user.is_staff %}
+                        <td>
+                            <a class="btn btn-info btn-sm" href="{% url 'dashboard-agregar_mascotas-update' item.id %}">Edit</a>
+                            <a class="btn btn-danger btn-sm" 
+                            href="{% url 'dashboard-agregar_mascotas-delete' item.id %}">Delete</a>
+                        </td>
+                        {% endif %}
+                        
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+
+
+<!--End Table-->
+{% endblock %}

@@ -1,0 +1,376 @@
+{% extends 'partials/base.html' %}
+{% block title %}Pagina Principal{% endblock %}
+
+{% block content %}
+{% load static %}
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Refugio</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="{% static '/favicon.ico' %}" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+</head>
+
+<header class="masthead">
+    <div class="container">
+        <div class="masthead-subheading">Bienvenido al Refugio!</div>
+        <div class="masthead-heading text-uppercase">Es Bueno verte por aqui</div>
+        <a class="btn btn-primary btn-xl text-uppercase" href="#services">Cuentame mas</a>
+    </div>
+</header>
+ <!-- Services-->
+ <section class="page-section" id="services">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Servicios</h2>
+            <h3 class="section-subheading text-muted">Te contamos todo lo que hacemos en Street tails</h3>
+        </div>
+        <div class="row text-center">
+            <div class="col-md-4">
+                <span class="fa-stack fa-4x">
+                    <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                    <i class="fas fa-dog fa-stack-1x fa-inverse"></i>
+                </span>
+                <h4 class="my-3">Albergue</h4>
+                <p class="text-muted">Una vez en el albergue, los animales pasan por un reconocimiento veterinario y reciben los cuidados y tratamientos físicos y psicológicos necesarios. El personal del refugio les alimenta, pasea, educa y atiende para que lleguen en las mejores condiciones posibles a su nuevo hogar.</p>
+            </div>
+            <div class="col-md-4">
+                <span class="fa-stack fa-4x">
+                    <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                    <i class="fas fa-cat fa-stack-1x fa-inverse"></i>
+                </span>
+                <h4 class="my-3">Veterinario</h4>
+                <p class="text-muted">Contamos con un centro veterinario en Guatemala abierto al público, que destina sus ingresos íntegramente al cuidado de los animales abandonados, y un centro de acogida en San Cristobal.</p>
+            </div>
+            <div class="col-md-4">
+                <span class="fa-stack fa-4x">
+                    <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                    <i class="fas fa-paw fa-stack-1x fa-inverse"></i>
+                </span>
+                <h4 class="my-3">Pet Shop</h4>
+                <p class="text-muted">Venta de articulos para el cuidado y desarrollo de las mascotas sin fines de lucro ya que todas nuestras ganancias apoyan directamente al refugio</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+ <!-- Portfolio Grid-->
+ <section class="page-section bg-light" id="portfolio">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Casos Emblematicos</h2>
+            <h3 class="section-subheading text-muted">Dicen que a través de la mirada se pueden trasmitir muchas cosas, en esta ocasión podremos ver toda la alegria que transmite la mirada varias mascotas a los que les ha cambiado la vida</h3>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <!-- Portfolio item 1-->
+                <div class="portfolio-item">
+                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="{% static '/img/portfolio/p1.jpg' %}" alt="..." />
+                    </a>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">Samy</div>
+                        <div class="portfolio-caption-subheading text-muted">Rescatado de las calles</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <!-- Portfolio item 2-->
+                <div class="portfolio-item">
+                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="{% static '/img/portfolio/p2.jpg' %}" alt="..." />
+                    </a>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">Bruno y Homero</div>
+                        <div class="portfolio-caption-subheading text-muted">Rescatados de las calles</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <!-- Portfolio item 3-->
+                <div class="portfolio-item">
+                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal3">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="{% static '/img/portfolio/c1.jpg' %}" alt="..." />
+                    </a>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">Gary</div>
+                        <div class="portfolio-caption-subheading text-muted">Rescatado de las calles</div>
+                    </div>
+                </div>
+            </div>
+           
+            
+        </div>
+    </div>
+</section>
+<!-- About-->
+<section class="page-section" id="about">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Acerca de nosostros</h2>
+            <h3 class="section-subheading text-muted"></h3>
+        </div>
+        <ul class="timeline">
+            <li>
+                <div class="timeline-image"><img class="rounded-circle img-fluid" src="{% static '/img/about/r1.jpg'%}" alt="..." /></div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h4>2022</h4>
+                        <h4 class="subheading">Nuestros inicios</h4>
+                    </div>
+                    <div class="timeline-body"><p class="text-muted">Somos una organización protectora de animales especializada, desde 2022, en la ayuda a perros y gatos maltratados y/o abandonados;</p></div>
+                </div>
+            </li>
+            <li class="timeline-inverted">
+                <div class="timeline-image"><img class="rounded-circle img-fluid" src="{% static '/img/about/r2.jpg' %}" alt="..." /></div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h4></h4>
+                        <h4 class="subheading">Somos Libres</h4>
+                    </div>
+                    <div class="timeline-body"><p class="text-muted">Una organización Guatemalteca totalmente independiente que no recibe subvenciones de organismos oficiales, empresas ni partidos políticos.</p></div>
+                </div>
+            </li>
+            <li>
+                <div class="timeline-image"><img class="rounded-circle img-fluid" src="{% static '/img/about/r3.jpg' %}" alt="..." /></div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h4></h4>
+                        <h4 class="subheading"></h4>
+                    </div>
+                    <div class="timeline-body"><p class="text-muted">La acción divulgativa promueve campañas en diferentes medios de comunicación con el claro objetivo de educar a la sociedad en el respeto hacia los animales y los derechos que tienen a disfrutar de una vida digna y saludable.</p></div>
+                </div>
+            </li>
+            <li class="timeline-inverted">
+                <div class="timeline-image"><img class="rounded-circle img-fluid" src="{% static '/img/about/r4.jpg' %}" alt="..." /></div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h4></h4>
+                        <h4 class="subheading"></h4>
+                    </div>
+                    <div class="timeline-body"><p class="text-muted">También reclamamos una serie de derechos básicos para las personas responsables de perros y gatos, como el libre acceso a espacios públicos (transportes, comercios, museos, parques, playas…) a la vez que defendemos firmemente la tenencia responsable de animales.</p></div>
+                </div>
+            </li>
+            <li class="timeline-inverted">
+                <div class="timeline-image">
+                    <h4>
+                        Cambiemos
+                        <br />
+                        una vida
+                        <br />
+                        Juntos!
+                    </h4>
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>
+
+
+<section class="page-section bg-light" id="team">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Nuestro asombroso equipo!</h2>
+            <h3 class="section-subheading text-muted">Quienes hacen posible Street Tails.</h3>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="team-member">
+                    <img class="mx-auto rounded-circle" src="{% static '/img/team/ag.jpg' %}" alt="..." />
+                    <h4>Andrea Golcher</h4>
+                    <p class="text-muted">Lider de rescate</p>
+                   
+                    <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/andrea.golcher.1"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="team-member">
+                    <img class="mx-auto rounded-circle" src="{% static '/img/team/fe.jpg' %}" alt="..." />
+                    <h4>Fabricio Escobar</h4>
+                    <p class="text-muted">Fundador del refugio</p>
+                    
+                    <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/pablo.escobar.735/"><i class="fab fa-facebook-f"></i></a>
+                   
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="team-member">
+                    <img class="mx-auto rounded-circle" src="{% static '/img/team/LM.jpg' %}" alt="..." />
+                    <h4>Lio Messi</h4>
+                    <p class="text-muted">Inversionista a travez de la fundacion Leo Messi</p>
+                    
+                    <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/leomessi"><i class="fab fa-facebook-f"></i></a>
+                  
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center"><p class="large text-muted"></p>Entrando en nuestro sitio web puedes conocer nuestras acciones. Si después de hacerlo piensas que merece la pena apoyar nuestra labor, hazte socio de El Refugio y cada vez más animales podrán agradecértelo.</div>
+        </div>
+    </div>
+</section>
+<!-- Clients-->
+<div class="py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-3 col-sm-6 my-3">
+                <a href="#!"><img class="img-fluid img-brand d-block mx-auto" src="{% static '/img/logos/prop.png' %}" alt="..." /></a>
+            </div>
+            <div class="col-md-3 col-sm-6 my-3">
+                <a href="#!"><img class="img-fluid img-brand d-block mx-auto" src="{% static '/img/logos/ali.png' %}" alt="..." /></a>
+            </div>
+            <div class="col-md-3 col-sm-6 my-3">
+                <a href="#!"><img class="img-fluid img-brand d-block mx-auto" src="{% static '/img/logos/sere.png' %}" alt="..." /></a>
+            </div>
+            <div class="col-md-3 col-sm-6 my-3">
+                <a href="#!"><img class="img-fluid img-brand d-block mx-auto" src="{% static '/img/logos/nupec.png' %}" alt="..." /></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer-->
+<footer class="footer py-4">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-4 text-lg-start">Copyright &copy; Fabricio Escobar 2022</div>
+            <div class="col-lg-4 my-3 my-lg-0">
+                
+                <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
+               
+            </div>
+            <div class="col-lg-4 text-lg-end">
+                <a class="link-dark text-decoration-none me-3" href="#!">Privacy Policy</a>
+                <a class="link-dark text-decoration-none" href="#!">Terms of Use</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Portfolio Modals-->
+<!-- Portfolio item 1 modal popup-->
+<div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-bs-dismiss="modal"><img src="{% static '/img/close-icon.svg' %}" alt="Close modal" /></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="modal-body">
+                            <!-- Project details-->
+                            <h2 class="text-uppercase">Samy</h2>
+                            <p class="item-intro text-muted">Rescatado de las calles.</p>
+                            <img class="img-fluid d-block mx-auto" src="{% static '/img/portfolio/p1.jpg' %}" alt="..." />
+                            <p>Su nombre es Samy, quien fue recibida por un grupo veterinario porque estaba en situación de riesgo.  Vivía en la calle y se refugiaba de vez en cuando en una caja de de cartón, su cuerpo estaba marcado por el abandono, el sufrimiento e indiferencia.
+                                Padecía de moquillo, parásitos sarna desnutrición y otras enfermedades, es muy triste ver el estado tan deprimente de un animal que no tiene la culpa de nada. Durante el primer año Samy estaba en muy mal estado, no se sabía con seguridad si podía salvarse.
+                                
+                                Después de un tiempo Samy fue mejorando notoriamente, y empezaron a verse los resultados positivos del cuidado intensivo al que fue sometida. Hoy en día Samy esta súper feliz en su nuevo hogar.</p>
+                            <ul class="list-inline">
+                                <li>
+                                    <strong>Mascota:</strong>
+                                   Samy
+                                </li>
+                                <li>
+                                    <strong>Caso:</strong>
+                                    Rescatado de las calles 
+                                </li>
+                            </ul>
+                            <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                <i class="fas fa-times me-1"></i>
+                                Regresar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Portfolio item 2 modal popup-->
+<div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-bs-dismiss="modal"><img src="{% static '/img/close-icon.svg' %}" alt="Close modal" /></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="modal-body">
+                            <!-- Project details-->
+                            <h2 class="text-uppercase">Bruno y Homero</h2>
+                            <p class="item-intro text-muted">Rescatados de las calles</p>
+                            <img class="img-fluid d-block mx-auto" src="{% static '/img/portfolio/p2.jpg' %}" alt="..." />
+                            <p>Bruno y Homero eran dos perritos explotados por la venta ilegal de animales, el refugio los rescato y ambos hermanos fueron adoptados por una hermosa famila que los ama.</p>
+                            <ul class="list-inline">
+                                <li>
+                                    <strong>Mascota:</strong>
+                                    Bruno y Homero
+                                </li>
+                                <li>
+                                    <strong>Caso:</strong>
+                                    Rescatados de las calles
+                                </li>
+                            </ul>
+                            <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                <i class="fas fa-times me-1"></i>
+                                Regresar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Portfolio item 3 modal popup-->
+<div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-bs-dismiss="modal"><img src="{% static '/img/close-icon.svg' %}" alt="Close modal" /></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="modal-body">
+                            <!-- Project details-->
+                            <h2 class="text-uppercase">Gary</h2>
+                            <p class="item-intro text-muted">Rescatado de la calle</p>
+                            <img class="img-fluid d-block mx-auto" src="{% static '/img/portfolio/c1.jpg' %}" alt="..." />
+                            <p>Gary, es un gatito rescatado; fue adoptado en el refugio de animales, pues estaba en graves condiciones ya que había sufrido una fractura en la cadera y esto le provocó que no pudiera saltar desde alturas, pero esto a su dueño no le importó, ya que lo quiso desde que lo vio.</p>
+                            <ul class="list-inline">
+                                <li>
+                                    <strong>Mascota:</strong>
+                                    Gary
+                                </li>
+                                <li>
+                                    <strong>Caso:</strong>
+                                    Rescatado de las calles 
+                                </li>
+                            </ul>
+                            <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                <i class="fas fa-times me-1"></i>
+                                Regresar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
