@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'user.apps.UserConfig',
     'crispy_forms',
     'axes',
+    'rest_framework',
+    'djoser',
 ]
 
 MIDDLEWARE = [
@@ -110,13 +112,20 @@ AUTH_PASSWORD_VALIDATORS = [
     },
     {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'OPTIONS': {
+            'min_length': 12,
+        }
     },
     {
         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
     },
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+
     },
+
+    
+    
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
