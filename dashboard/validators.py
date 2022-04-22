@@ -1,74 +1,61 @@
 import re
 
 from django.core.exceptions import ValidationError
-from django.utils.translation import ugettext as _
 
 
 class NumberValidator(object):
-
-    @staticmethod
-    def validate(password, user=None):
+    def validate(self, password, user=None):
         if not re.findall('\d', password):
             raise ValidationError(
-                _("The password must contain at least 1 digit, 0-9."),
+                ("Su contraseña debe de tener al menos un digito, 0-9."),
                 code='password_no_number',
-                )
-
-    @staticmethod
-    def get_help_text():
-        return _(
-            "Your password must contain at least 1 digit, 0-9."
             )
+
+    def get_help_text(self):
+        return (
+            "Su contraseña debe de tener al menos un digito, 0-9."
+        )
 
 
 class UppercaseValidator(object):
-
-    @staticmethod
-    def validate(password, user=None):
+    def validate(self, password, user=None):
         if not re.findall('[A-Z]', password):
             raise ValidationError(
-                _("The password must contain at least 1 uppercase letter, A-Z."),
+                ("Su contreseña debe de tener almenos una letra Mayuscula, A-Z."),
                 code='password_no_upper',
-                )
-
-    @staticmethod
-    def get_help_text():
-        return _(
-            "Your password must contain at least 1 uppercase letter, A-Z."
             )
+
+    def get_help_text(self):
+        return (
+            "Su contreseña debe de tener almenos una letra Mayuscula, A-Z."
+        )
 
 
 class LowercaseValidator(object):
-
-    @staticmethod
-    def validate(password, user=None):
+    def validate(self, password, user=None):
         if not re.findall('[a-z]', password):
             raise ValidationError(
-                _("The password must contain at least 1 lowercase letter, a-z."),
+                ("Su contreseña debe de tener almenos una letra Minuscula, a-z."),
                 code='password_no_lower',
-                )
-
-    @staticmethod
-    def get_help_text(self):
-        return _(
-            "Your password must contain at least 1 lowercase letter, a-z."
             )
+
+    def get_help_text(self):
+        return (
+            "Su contreseña debe de tener almenos una letra Minuscula, a-z."
+        )
 
 
 class SymbolValidator(object):
-
-    @staticmethod
-    def validate(password, user=None):
+    def validate(self, password, user=None):
         if not re.findall('[()[\]{}|\\`~!@#$%^&*_\-+=;:\'",<>./?]', password):
             raise ValidationError(
-                _("The password must contain at least 1 symbol: " +
+                ("Su contreseña debe de tener almenos un symbolo: " +
                   "()[]{}|\`~!@#$%^&*_-+=;:'\",<>./?"),
                 code='password_no_symbol',
-                )
-
-    @staticmethod
-    def get_help_text():
-        return _(
-            "Your password must contain at least 1 symbol: " +
-            "()[]{}|\`~!@#$%^&*_-+=;:'\",<>./?"
             )
+
+    def get_help_text(self):
+        return (
+            "Su contreseña debe de tener almenos un symbolo: " +
+            "()[]{}|\`~!@#$%^&*_-+=;:'\",<>./?"
+        )

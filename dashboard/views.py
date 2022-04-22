@@ -8,11 +8,17 @@ from .forms import MascotasForm, AdopcionesForm
 
 # Create your views here.
 
-@login_required
 def index(request):
-    return render(request, 'dashboard/index.html')
+    current_user = request.user
+    nuser = current_user.username
+    context={
+        'nuser': nuser,
+        }
+    return render(request, 'dashboard/index.html', context)
+    
 
-@login_required
+
+
 def adopciones(request):
     items = Adopciones.objects.all()
     if request.method == 'POST':

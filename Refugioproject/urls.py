@@ -18,13 +18,15 @@ from django.contrib import admin
 from django.urls import path, include
 from user import views as user_views
 from django.contrib.auth import views as auth_views
+from dashboard import views as dashboard_views
 
 
 urlpatterns = [
+     path('', dashboard_views.index, name = 'dashboard-index'),
     path('admin/', admin.site.urls),
     path('', include('dashboard.urls')),
     path('register/', user_views.register, name='user-register'),
-    path('', auth_views.LoginView.as_view(template_name='user/login.html'), name= 'user-login'),
+    path('login/', auth_views.LoginView.as_view(template_name='user/login.html'), name= 'user-login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='user/logout.html'), name= 'user-logout'),
     path('profile/', user_views.profile, name='user-profile'),
     path('password_reset/', auth_views.PasswordResetView.as_view(template_name= 'user/password_reset.html'), name='password_reset'),

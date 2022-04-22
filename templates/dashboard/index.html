@@ -21,9 +21,16 @@
 
 <header class="masthead">
     <div class="container">
-        <div class="masthead-subheading">Bienvenido al Refugio!</div>
+        {% if user.is_authenticated %}
+        <div class="masthead-subheading">Bienvenid@ al Refugio! {{nuser}}</div>
         <div class="masthead-heading text-uppercase">Es Bueno verte por aqui</div>
         <a class="btn btn-primary btn-xl text-uppercase" href="#services">Cuentame mas</a>
+        {% else %}
+        <div class="masthead-heading text-uppercase">Conectate con el refugio Iniciando Sesion!</div>
+      
+        <a class="btn btn-primary btn-xl text-uppercase" href="#services">Cuentame mas</a>
+        {% endif %}
+    
     </div>
 </header>
  <!-- Services-->
