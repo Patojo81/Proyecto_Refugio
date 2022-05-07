@@ -1,10 +1,15 @@
 from tabnanny import verbose
 from django.db import models
 from django.contrib.auth.models import User
+VAC = (
+
+)
 RAZA = (
     ('Hembra', 'Hembra'),
     ('Macho', 'Macho'),
 )
+
+        
 
 class Mascotas(models.Model):
     
@@ -16,18 +21,19 @@ class Mascotas(models.Model):
     
     Raza = models.CharField(max_length=100, null=True)
 
-
     Alimentacion = models.CharField(max_length=100, null=True)
 
     Edad = models.PositiveIntegerField(null=True)
 
     Fecha = models.DateField(null=True)
 
-
     Sexo = models.CharField(max_length = 100, choices=RAZA, null=True)
 
     Enfermedad = models.CharField(max_length = 100, null=True)
+
+    
     class Meta:
+        
         verbose_name_plural ='Mascotas'
 
     def __str__(self):
@@ -45,4 +51,9 @@ class Adopciones(models.Model):
     Domicilio = models.CharField(max_length=100, null=True)
     Numero_de_mascotas = models.PositiveIntegerField(null=True)
     Razones = models.CharField(max_length=100, null=True)
+
+
+
+
+
 

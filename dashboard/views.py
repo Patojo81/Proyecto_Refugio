@@ -1,16 +1,15 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from .models import Mascotas, Adopciones
-from django.contrib.auth.models import User
-from .forms import MascotasForm, AdopcionesForm
-
+from .forms import MascotasForm, AdopcionesForm 
 
 # Create your views here.
 
 def index(request):
     current_user = request.user
+   
     nuser = current_user.username
+   
     context={
         'nuser': nuser,
         }

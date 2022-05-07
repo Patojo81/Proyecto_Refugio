@@ -10,6 +10,8 @@ class MascotasAdmin(admin.ModelAdmin):
 
 class AdopcionesAdmin(admin.ModelAdmin):
     list_display =( 'id', 'Nombre', 'Apellidos', 'Edad', 'Correo', 'Telefono','Domicilio', 'Numero_de_mascotas', 'Razones')
+    
+
 
 
 

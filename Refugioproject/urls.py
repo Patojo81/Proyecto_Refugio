@@ -22,7 +22,7 @@ from dashboard import views as dashboard_views
 
 
 urlpatterns = [
-     path('', dashboard_views.index, name = 'dashboard-index'),
+    path('', dashboard_views.index, name = 'dashboard-index'),
     path('admin/', admin.site.urls),
     path('', include('dashboard.urls')),
     path('register/', user_views.register, name='user-register'),
