@@ -17,4 +17,4 @@ class MadopcionForm(forms.ModelForm):
     class Meta:
         model = Madopcion
         
-        fields = ['Nombre', 'Raza', 'Especie', 'Sexo', ' imagen']
+        fields = ['Nombre', 'Raza', 'Especie', 'Sexo', 'imagen']
