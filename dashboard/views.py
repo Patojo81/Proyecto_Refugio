@@ -1,9 +1,21 @@
 from django.shortcuts import render, redirect
+
 from django.contrib.auth.decorators import login_required
-from .models import Mascotas, Adopciones
-from .forms import MascotasForm, AdopcionesForm 
+
+from django.http import HttpResponse
+from dashboard.utils import render_to_pdf
+from .models import Mascotas, Adopciones,Madopcion
+from .forms import MascotasForm, AdopcionesForm,MadopcionForm
+from django.views.generic import View
+from .utils import render_to_pdf
+from django.contrib.auth.models import User
+
 
 # Create your views here.
+from django.http import JsonResponse
+
+def lockout(request, credentials, *args, **kwargs):
+    return JsonResponse({"status": "Su cuenta se ha bloqueado debido al numero de intentos fallidos. Contactar con un administrador para el desbloqueo de la misma."}, status=403)
 
 def index(request):
     current_user = request.user
@@ -19,6 +31,7 @@ def index(request):
 
 
 def adopciones(request):
+    items2 = Madopcion.objects.all()
     items = Adopciones.objects.all()
     if request.method == 'POST':
         form = AdopcionesForm(request.POST)   
@@ -30,10 +43,29 @@ def adopciones(request):
     context={
         'items': items,
         'form' : form,
-       
+        'items2': items2,     
     }
 
     return render(request, 'dashboard/adopciones.html', context)
+
+
+
+def agregar_adopcion(request):
+    if request.method == 'POST':
+        form = MadopcionForm(request.POST)   
+        if form.is_valid():
+            form.save()
+            return redirect('dashboard-adopciones')
+    else: 
+            form =MadopcionForm()
+    context={
+        
+        'form' : form,    
+    }
+
+    return render(request, 'dashboard/agregar_adopcion.html', context)
+
+
 
 @login_required
 def mascotas(request):
@@ -78,6 +110,13 @@ def adopciones_delete (request,pk):
         return redirect ('dashboard-adopciones')
     return render(request, 'dashboard/adopciones_delete.html')
 
+def madopcion_delete (request,pk):
+    item =Madopcion.objects.get(id=pk)
+    if request.method== 'POST':
+        item.delete()
+        return redirect ('dashboard-adopciones')
+    return render(request, 'dashboard/madopcion_delete.html')
+
 def agregar_mascotas_update (request, pk):
     item= Mascotas.objects.get(id=pk)
     if request.method== 'POST':
@@ -107,3 +146,53 @@ def adopciones_update (request, pk):
 
     }
     return render(request, 'dashboard/adopciones_update.html',context)
+
+def madopcion_update (request, pk):
+    item= Madopcion.objects.get(id=pk)
+    if request.method== 'POST':
+        form=MadopcionForm(request.POST, instance=item)
+        if form.is_valid():
+            form.save()
+            return redirect ('dashboard-adopciones')
+    else:
+            form = MadopcionForm(instance=item)
+    context={
+        'form' : form,
+
+    }
+    return render(request, 'dashboard/madopcion_update.html',context)
+
+class Agregar_MascotasPdf (View):
+   
+    def get ( self, request, *args, **kwargs):
+         items = Mascotas.objects.all()
+         data ={
+            'items' : items
+
+         }
+         pdf = render_to_pdf ('dashboard/lista_mascotas.html', data)
+         return HttpResponse(pdf, content_type='application/pdf')
+
+
+class Agregar_AdopcionesPdf (View):
+    
+    def get ( self, request, *args, **kwargs):
+         items = Adopciones.objects.all()
+         data ={
+            'items' : items
+
+         }
+         pdf = render_to_pdf ('dashboard/lista_adopciones.html', data)
+         return HttpResponse(pdf, content_type='application/pdf')
+
+class Agregar_UsuariosPdf(View):
+    
+    def get(self, request, *args, **kwargs):
+        workers = User.objects.all()
+        data = {
+            'count': workers.count(),
+            'workers': workers,
+        }
+        pdf = render_to_pdf('dashboard/lista_Usuarios.html', data)
+        return HttpResponse(pdf, content_type='application/pdf')
+

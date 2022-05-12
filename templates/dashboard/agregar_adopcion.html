@@ -1,0 +1,27 @@
+{% extends 'partials/base.html' %}
+{% block title %}Agregar Mascota Para Adoptar{% endblock %}
+{% load crispy_forms_tags %}
+{% block content %}
+<hr>
+<hr>
+<div class="container">
+    <div class="row mt-5">
+        {% if user.is_authenticated and user.is_staff %}
+        <div class="col-md-6 offset-md-3">
+            <div class="border bg-white p-3">
+                <h4>Agregar Mascota para Adoptar</h4>
+                <hr>
+                <form method= "POST">
+                  {% csrf_token %}
+                  {{ form|crispy }}
+                    <input class="btn btn-success btn-block" type="submit" value="Agregar Mascota">
+
+                </form>
+            </div>
+        </div>
+        {% endif %} 
+                             
+    </div>
+</div>
+
+{% endblock %}

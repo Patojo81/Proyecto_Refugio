@@ -9,7 +9,12 @@ RAZA = (
     ('Macho', 'Macho'),
 )
 
-        
+class Madopcion (models.Model):
+    Nombre = models.CharField(max_length=100, null=True)
+    Sexo = models.CharField(max_length = 100, choices=RAZA, null=True)
+    Especie = models.CharField(max_length=100, null=True)
+    Raza = models.CharField(max_length=100, null=True)
+    imagen = models.ImageField(default='avatar.jpg', upload_to='Mascotas_images')
 
 class Mascotas(models.Model):
     

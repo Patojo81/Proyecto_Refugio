@@ -1,24 +1,20 @@
 {% extends 'partials/base.html' %}
-{% block title %}Mascotas{% endblock %}
+{% block title %}Mascotas En Adopcion{% endblock %}
+{% load crispy_forms_tags %}
 
 {% block content %}
-<hr>  
-<hr>  
 <div class="container">
     <div class="row mt-">
         <div class="col-md-6 offset_md-3">
             <div class="border bg-white p-3">
-                <h3>Eliminar Adopciones</h3>
+                <h3>Editar Mascota en Adopcion</h3>
                 <hr>    
-                <div class=" alert alert-danger">
-                    <h4>¿Esta seguro que desea Eliminar?</h4>
-
-                </div>
+               
                 <form method="POST">
                     {% csrf_token %}
-                    {{form}}
+                    {{form|crispy}}
                     <a class = "btn btn-secondary" href="{% url 'dashboard-adopciones' %}">Cancelar</a>
-                    <input class="btn btn-danger" type="submit" value= "Confirmo">
+                    <input class="btn btn-danger" type="submit" value= "ACTUALIZAR">
                 </form>
             </div>
 

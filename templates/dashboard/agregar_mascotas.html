@@ -4,7 +4,6 @@
 {% block content %}
 
 
-   <!--Table-->
 <hr>
 <hr>
 <hr>
@@ -64,17 +63,26 @@
                         {% if user.is_authenticated and user.is_staff %}
                         <td>
                             <a class="btn btn-info btn-sm" href="{% url 'dashboard-agregar_mascotas-update' item.id %}">Edit</a>
-                            <a class="btn btn-danger btn-sm" 
-                            href="{% url 'dashboard-agregar_mascotas-delete' item.id %}">Delete</a>
+                            <a class="btn btn-danger btn-sm" href="{% url 'dashboard-agregar_mascotas-delete' item.id %}">Delete</a>
                         </td>
                         {% endif %}
                         
                     </tr>
                     {% endfor %}
+                   
+                   
                 </tbody>
             </table>
+                {% if user.is_authenticated and user.is_staff %}
+                <td>
+                     <a class="btn btn-info btn-lg px-4 gap-3" href="{% url 'mascotas_all'%}" >Generar PDF</a>
+                </td>
+                {% endif %}
+                  </div>
         </div>
+        
     </div>
+    
 
 </div>
 

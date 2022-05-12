@@ -1,5 +1,5 @@
 from django import forms 
-from .models import Mascotas, Adopciones
+from .models import Mascotas, Adopciones,Madopcion
 
 class MascotasForm(forms.ModelForm):
     class Meta:
@@ -12,3 +12,9 @@ class AdopcionesForm(forms.ModelForm):
         model = Adopciones
         
         fields = ['Nombre', 'Apellidos', 'Edad', 'Correo', 'Telefono','Domicilio', 'Numero_de_mascotas', 'Razones']
+
+class MadopcionForm(forms.ModelForm):
+    class Meta:
+        model = Madopcion
+        
+        fields = ['Nombre', 'Raza', 'Especie', 'Sexo', ' imagen']

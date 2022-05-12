@@ -1,0 +1,44 @@
+
+{% block title %}Listado Usuarios{% endblock %}
+
+{% block content %}
+
+
+  <!--Table-->
+  <div class="container">
+    <div class="row my-4">
+        <div class="col-md-4"></div>
+        <div class="col-md-8">
+            <table class="table bg-white">
+                <thead class="bg-info">
+                    <tr class="text-white">
+                        <th scope="col">#</th>
+                        <th scope="col">Usuario</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellido</th>
+                        <th scope="col">Email</th>
+                     
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for worker in workers %}
+                    <tr>
+                        <td>{{worker.username }}</td>
+                        <td>{{worker.first_name}}</td>
+                        <td>{{worker.last_name}}</td>
+                        <td>{{worker.email}}</td>
+             
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+
+
+<!--End Table-->
+{% endblock %}

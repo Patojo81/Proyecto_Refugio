@@ -1,0 +1,39 @@
+
+<div class="container">
+    <div class="row my-4">
+        <div class="col-md-8">
+            <table class="table bg-white">
+                <thead class="bg-info">
+                    <tr class="text-white">
+                        <th scope="col">#</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Alimentacion</th>
+                        <th scope="col">Edad</th>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Sexo</th>
+                        <th scope="col">Enfermedad</th>
+                        <th scope="col">Especie</th>
+                        <th scope="col">Raza</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in items %}
+                    <tr>
+                        <td>{{ item.id }}</td>
+                        <td>{{ item.Nombre }}</td>
+                        <td>{{ item.Alimentacion }}</td>
+                        <td>{{ item.Edad }}</td>
+                        <td>{{ item.Fecha }}</td>
+                        <td>{{ item.Sexo }}</td>
+                        <td>{{ item.Enfermedad }}</td>
+                        <td>{{ item.Especie }}</td>
+                        <td>{{ item.Raza}}</td>
+                        
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

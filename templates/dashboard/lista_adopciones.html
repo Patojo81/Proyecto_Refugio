@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="row my-4">
+        
+        <div class="col-md-8">
+            <table class="table bg-white">
+                <thead class="bg-info">
+                    <tr class="text-white">
+                        <th scope="col">#</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellidos</th>
+                        <th scope="col">Edad</th>
+                        <th scope="col">Correo</th>
+                        <th scope="col">Telefono</th>
+                        <th scope="col">Domicilio</th>
+                        <th scope="col">Numero de mascotas</th>
+                        <th scope="col">Razones</th>
+                        
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in items %}
+                    <tr>
+                        <td>{{ item.id }}</td>
+                        <td>{{ item.Nombre }}</td>
+                        <td>{{ item.Apellidos }}</td>
+                        <td>{{ item.Edad }}</td>
+                        <td>{{ item.Correo }}</td>
+                        <td>{{ item.Telefono }}</td>
+                        <td>{{ item.Domicilio}}</td>
+                        <td>{{ item.Numero_de_mascotas }}</td>
+                        <td>{{ item.Razones}}</td>
+                        
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+       
+        
+    </div>
+    {% if user.is_authenticated and user.is_staff %}
+    <td>
+         <a class="btn btn-info btn-lg px-4 gap-3" href="{% url 'adopciones_all'%}" >Generar PDF</a>
+    </td>
+    {% endif %}
+
+</div>

@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+import os 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,9 +26,9 @@ SECRET_KEY = 'django-insecure-y9o9tc6mf0&^$+6*85q)yi(d&h=9$ksq5rq50@366@19_f@dk-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
-
+CSRF_TRUSTED_ORIGINS = ['http://*.localhost:8000','https://*.127.0.0.1:8000']
 # Application definition
 
 INSTALLED_APPS = [
@@ -43,6 +44,9 @@ INSTALLED_APPS = [
     'axes',
     'rest_framework',
     'djoser',
+    'Refugioproject',
+    'import_export',
+   
     
 ]
 
@@ -59,6 +63,7 @@ MIDDLEWARE = [
 AXES_FAILURE_LIMIT = 6
 AXES_LOCK_OUT_BY_COMBINATION_USER_AND_IP = True
 AXES_RESET_ON_SUCCESS = True
+AXES_LOCKOUT_CALLABLE = "dashboard.views.lockout"
 
 ROOT_URLCONF = 'Refugioproject.urls'
 
@@ -94,12 +99,12 @@ WSGI_APPLICATION = 'Refugioproject.wsgi.application'
 
 DATABASES = {
      'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'Refugio',
-        'USER': 'postgres',
-        'PASSWORD':'C3leste2112',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD':os.environ.get('DB_PASSWORD'),
+        'HOST': os.environ.get('DB_HOST'),
+        
     }
 }
 
@@ -165,11 +170,15 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+
 STATICFILES_DIRS =[
-    BASE_DIR / "static"
+   BASE_DIR / "static"
 ]
 
-STATIC_ROOT =(BASE_DIR/"asert/")
+STATIC_ROOT = '/code/static/'
+
+MEDIA_ROOT = (BASE_DIR/ 'media')
+MEDIA_URL ='/media/'
 
 LOGIN_REDIRECT_URL = 'dashboard-index'
 LOGIN_URL = 'user-login'
